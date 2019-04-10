@@ -38,6 +38,26 @@
  * 
  */
 func reverse(x int) int {
-    
+	remain := x
+	var result int
+	for remain != 0 {
+		d := remain % 10
+		remain = remain/10
+		if d < 0 {
+			d=-d
+		}
+		result = 10 * result+d
+	}
+	
+	if result > math.MaxInt32 {
+		return 0
+	}
+	if result < math.MinInt32 {
+		return 0
+	}
+	if x <0 {
+		return -result
+	}
+	return result
 }
 
